@@ -6,11 +6,10 @@
     "prepare": "nitropack prepare",
     "dev": "nitropack dev",
     "build": "nitropack build",
-    "build:cloudflare": "cross-env NITRO_PRESET=cloudflare npm run build",
-    "build:aws": "cross-env NITRO_PRESET=aws_lambda npm run build",
-    "build:node": "cross-env NITRO_PRESET=node-server npm run build",
-    "build:netlify": "node prebuild-cleanup.js && npx nitropack build --preset netlify && node cleanup-build.js",
-    "build:netlify-functions": "node prebuild-cleanup.js && npx nitropack build --preset netlify && node cleanup-build.js",
+    "build:cloudflare": "NITRO_PRESET=cloudflare npm run build",
+    "build:aws": "NITRO_PRESET=aws_lambda npm run build",
+    "build:node": "NITRO_PRESET=node-server npm run build",
+    "build:netlify": "NITRO_PRESET=netlify_edge npm run build",
     "start": "node .output/server/index.mjs",
     "lint": "eslint --ext .ts src/",
     "lint:fix": "eslint --fix --ext .ts src/",
@@ -25,7 +24,6 @@
     "@rollup/wasm-node": "^4.40.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "cross-env": "^7.0.3",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
@@ -35,11 +33,6 @@
   "pnpm": {
     "overrides": {
       "rollup": "npm:@rollup/wasm-node"
-    },
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "es5-ext"
-      ]
     }
   }
 }

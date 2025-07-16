@@ -10,25 +10,5 @@ export default defineNitroConfig({
   },
   alias: {
     "@": join(__dirname, "src")
-  },
-  // Configure rollup to exclude problematic packages
-  rollupConfig: {
-    external: ['es5-ext'],
-    plugins: []
-  },
-  // Additional build configuration for Netlify
-  experimental: {
-    wasm: false
   }
 });
-function defineNitroConfig(config: {
-  compatibilityDate: string;
-  srcDir: string;
-  runtimeConfig: { version: string; };
-  alias: { "@": string; };
-  rollupConfig: { external: string[]; plugins: never[]; };
-  experimental: { wasm: boolean; };
-}) {
-  return config;
-}
-
