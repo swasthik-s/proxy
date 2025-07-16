@@ -9,8 +9,8 @@
     "build:cloudflare": "NITRO_PRESET=cloudflare npm run build",
     "build:aws": "NITRO_PRESET=aws_lambda npm run build",
     "build:node": "NITRO_PRESET=node-server npm run build",
-    "build:netlify": "NITRO_PRESET=netlify_edge npm run build",
-    "build:netlify-functions": "NITRO_PRESET=netlify npm run build",
+    "build:netlify": "NITRO_PRESET=netlify_edge npm run build && node cleanup-build.js",
+    "build:netlify-functions": "NITRO_PRESET=netlify npm run build && node cleanup-build.js",
     "start": "node .output/server/index.mjs",
     "lint": "eslint --ext .ts src/",
     "lint:fix": "eslint --fix --ext .ts src/",
@@ -34,6 +34,9 @@
   "pnpm": {
     "overrides": {
       "rollup": "npm:@rollup/wasm-node"
+    },
+    "peerDependencyRules": {
+      "ignoreMissing": ["es5-ext"]
     }
   }
 }

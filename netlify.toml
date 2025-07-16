@@ -1,7 +1,6 @@
 [build]
-command = "pnpm build:netlify"
+command = "pnpm build:netlify-functions"
 publish = ".netlify"
-edge_functions = ".netlify/functions"
 ignore = "plugins/node_modules/**"
 
 [functions]

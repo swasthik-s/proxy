@@ -11,9 +11,13 @@ export default defineNitroConfig({
   alias: {
     "@": join(__dirname, "src")
   },
-  // Exclude problematic files for Netlify deployment
-  ignore: [
-    "**/node_modules/**/es5-ext/**/*#*/**",
-    "**/plugins/node_modules/**"
-  ]
+  // Configure rollup to exclude problematic packages
+  rollupConfig: {
+    external: ['es5-ext'],
+    plugins: []
+  },
+  // Additional build configuration for Netlify
+  experimental: {
+    wasm: false
+  }
 });
