@@ -1,7 +1,6 @@
 [build]
 command = "pnpm build:netlify-functions"
-publish = ".netlify"
-ignore = "plugins/node_modules/**"
+publish = ".output/public"
 
 [functions]
-  directory = ".netlify/functions"
+directory = ".output/functions"

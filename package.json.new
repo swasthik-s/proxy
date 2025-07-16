@@ -7,10 +7,10 @@
     "dev": "nitropack dev",
     "build": "nitropack build",
     "build:cloudflare": "cross-env NITRO_PRESET=cloudflare npm run build",
-    "build:aws": "cross-env NITRO_PRESET=aws_lambda npm run build",
+    "build:aws": "cross-env NITRO_PRESET=aws_lambda npm run build", 
     "build:node": "cross-env NITRO_PRESET=node-server npm run build",
-    "build:netlify": "node prebuild-cleanup.js && npx nitropack build --preset netlify && node cleanup-build.js",
-    "build:netlify-functions": "node prebuild-cleanup.js && npx nitropack build --preset netlify && node cleanup-build.js",
+    "build:netlify": "npx nitropack build --preset netlify && node cleanup-build.js",
+    "build:netlify-functions": "npx nitropack build --preset netlify && node cleanup-build.js",
     "start": "node .output/server/index.mjs",
     "lint": "eslint --ext .ts src/",
     "lint:fix": "eslint --fix --ext .ts src/",
@@ -37,9 +37,7 @@
       "rollup": "npm:@rollup/wasm-node"
     },
     "peerDependencyRules": {
-      "ignoreMissing": [
-        "es5-ext"
-      ]
+      "ignoreMissing": ["es5-ext"]
     }
   }
 }

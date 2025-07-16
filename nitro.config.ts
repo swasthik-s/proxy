@@ -21,3 +21,14 @@ export default defineNitroConfig({
     wasm: false
   }
 });
+function defineNitroConfig(config: {
+  compatibilityDate: string;
+  srcDir: string;
+  runtimeConfig: { version: string; };
+  alias: { "@": string; };
+  rollupConfig: { external: string[]; plugins: never[]; };
+  experimental: { wasm: boolean; };
+}) {
+  return config;
+}
+
