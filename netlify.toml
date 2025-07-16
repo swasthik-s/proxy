@@ -2,5 +2,7 @@
 command = "pnpm build:netlify"
 publish = ".netlify"
 edge_functions = ".netlify/functions"
+ignore = "plugins/node_modules/**"
+
 [functions]
   directory = ".netlify/functions"

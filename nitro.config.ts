@@ -10,5 +10,10 @@ export default defineNitroConfig({
   },
   alias: {
     "@": join(__dirname, "src")
-  }
+  },
+  // Exclude problematic files for Netlify deployment
+  ignore: [
+    "**/node_modules/**/es5-ext/**/*#*/**",
+    "**/plugins/node_modules/**"
+  ]
 });
