@@ -10,5 +10,12 @@ export default defineNitroConfig({
   },
   alias: {
     "@": join(__dirname, "src")
+  },
+  output: {
+    dir: '.netlify',
+    publicDir: false,
+    serverDir: false,
+    // Exclude node_modules and other unwanted files
+    exclude: ['node_modules', '**/node_modules/**']
   }
 });
